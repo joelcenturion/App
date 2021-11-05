@@ -4,16 +4,18 @@ import 'package:app/pages/home.dart';
 import 'package:app/pages/person.dart';
 import 'package:app/pages/loading.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:app/pages/login.dart';
 
 void main() {
   runApp(MaterialApp(
     theme: ThemeData(primaryColor: Color(0xffF1AF4B)),
-    initialRoute: '/home',
+    initialRoute: '/login',
     routes: {
       '/home': (context) => Home(),
       '/person': (context) => Person(),
       '/loading': (context) => Loading(),
       '/camera': (context) => Camera(),
+      '/login': (context) => Login(),
     },
   ));
 }

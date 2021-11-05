@@ -25,6 +25,7 @@ class _HomeState extends State<Home> {
       statusBarColor: Color(0xffF1AF4B), // status bar color
     ));
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Container(
         decoration: BoxDecoration(
           // border: Border.all(color: Colors.black),
