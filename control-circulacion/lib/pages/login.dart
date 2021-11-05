@@ -143,7 +143,9 @@ class _LoginState extends State<Login> {
             Expanded(
               child: Image.asset(
                 'assets/encarnacion.png',
-                fit: BoxFit.fill,
+                fit: BoxFit.contain,
+                height: 100,
+                width: 100,
               ),
             )
           ],
