@@ -303,15 +303,21 @@ class _PersonState extends State<Person> {
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.home,
+              Icons.home_outlined,
+              color: Color(0xffF1AF4B),
             ),
             label: 'Inicio',
           ),
           BottomNavigationBarItem(
-              icon: Icon(MyIcon.face2), label: 'Verificación'),
+              icon: Icon(
+                MyIcon.face1,
+                color: Color(0xffF1AF4B),
+              ),
+              label: 'Verificación'),
           BottomNavigationBarItem(
             icon: Icon(
               Icons.comment,
+              color: Color(0xffF1AF4B),
             ),
             label: 'Comentarios',
           )
