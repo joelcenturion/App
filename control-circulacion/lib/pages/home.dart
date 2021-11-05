@@ -27,6 +27,7 @@ class _HomeState extends State<Home> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Container(
+        padding: EdgeInsets.all(20),
         decoration: BoxDecoration(
           // border: Border.all(color: Colors.black),
           image: DecorationImage(

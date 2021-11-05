@@ -9,7 +9,7 @@ import 'package:app/pages/login.dart';
 void main() {
   runApp(MaterialApp(
     theme: ThemeData(primaryColor: Color(0xffF1AF4B)),
-    initialRoute: '/login',
+    initialRoute: '/home',
     routes: {
       '/home': (context) => Home(),
       '/person': (context) => Person(),

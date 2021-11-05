@@ -70,7 +70,7 @@ class Global {
   static late String ci;
   static late String ciBase64; // Foto de cédula en base64
   static late String cameraBase64; //Foto de cámara en base64
-  static late bool recoResult; // Resultado del reconocimiento facial
+  static bool recoResult = true; // Resultado del reconocimiento facial
   //Datos de la persona
   static late String message;
   static late String name;
