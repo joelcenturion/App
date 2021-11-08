@@ -1,10 +1,10 @@
-import 'package:app/services/person_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:app/services/icons.dart';
 
 class Person extends StatefulWidget {
   // const ({ Key? key }) : super(key: key);
+  static int n = 0;
   @override
   _PersonState createState() => _PersonState();
 }
@@ -23,13 +23,14 @@ class _PersonState extends State<Person> {
   }
 
   //Color de cuadro sobre foto de ci
-  Color? _color = Colors.green[400];
-  IconData _icon = Icons.offline_pin_outlined;
+  Color? _color;
+  IconData? _icon;
   // height y widht de Foto de cédula
   late double height;
   late double widht;
   //Obtener datos de la persona desde loading.dart
   Map person = {};
+
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
@@ -41,10 +42,14 @@ class _PersonState extends State<Person> {
     widht = person['widht'];
     //Según resultado de la verificación facial, se eligen el icono y el color
     //para el mensaje que está sobre la foto de ci
-    if (Global.recoResult == false) {
+    if (person['message'] == 'RECO FACIAL NEGATIVO') {
       _color = Colors.red;
       _icon = Icons.close;
+    } else {
+      _color = Colors.green[400];
+      _icon = Icons.offline_pin_outlined;
     }
+
     return Scaffold(
       body: SafeArea(
         child: Container(
@@ -116,6 +121,7 @@ class _PersonState extends State<Person> {
               ),
               //3er. elemento de la columna principal. CI, Nombre, Fecha de nacimiento
               Divider(
+                height: 5,
                 thickness: 2,
               ),
               Container(
@@ -216,6 +222,7 @@ class _PersonState extends State<Person> {
                 ),
               ),
               Divider(
+                height: 5,
                 thickness: 2,
               ),
               //4to. elemento de la columna principal. Datos de Vacunación
@@ -229,7 +236,6 @@ class _PersonState extends State<Person> {
                   ),
                 ),
               ),
-
               Expanded(
                 flex: 2,
                 child: SingleChildScrollView(

@@ -37,45 +37,42 @@ class _HomeState extends State<Home> {
         ),
         width: double.infinity,
         height: double.infinity,
-        child: Stack(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Container(
-                  margin: EdgeInsets.only(top: 25),
-                  child: Image.asset(
-                    'assets/gobierno-nacional.png',
-                    height: 120,
-                    width: 320,
-                    fit: BoxFit.fitWidth,
-                  ),
-                ),
-                Container(
-                  margin: EdgeInsets.only(bottom: 15),
-                  child: Text(
-                    'PASAPORTE SANITARIO',
-                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-                  ),
-                ),
-                Container(
-                  child: Text('Municipalidad de Encarnación',
-                      style: TextStyle(
-                        fontSize: 15,
-                      )),
-                ),
-                Container(
-                  margin: EdgeInsets.fromLTRB(10, 15, 10, 0),
-                  child: Text(
-                    'Ingrese el número de documento para validar los datos de vacunación',
-                    style: TextStyle(color: Colors.grey, height: 2),
-                  ),
-                ),
-              ],
+            Container(
+              margin: EdgeInsets.only(top: 10),
+              child: Image.asset(
+                'assets/gobierno-nacional.png',
+                height: 120,
+                width: 320,
+                fit: BoxFit.fitWidth,
+              ),
             ),
             Container(
-              alignment: Alignment.bottomCenter,
-              margin: EdgeInsets.fromLTRB(10, 0, 10, 35),
+              margin: EdgeInsets.only(bottom: 15),
+              child: Text(
+                'PASAPORTE SANITARIO',
+                style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+              ),
+            ),
+            Container(
+              child: Text('Municipalidad de Encarnación',
+                  style: TextStyle(
+                    fontSize: 15,
+                  )),
+            ),
+            Container(
+              margin: EdgeInsets.fromLTRB(10, 15, 10, 0),
+              child: Text(
+                'Ingrese el número de documento para validar los datos de vacunación',
+                style: TextStyle(color: Colors.grey, height: 2),
+              ),
+            ),
+            Expanded(child: Container()),
+            Container(
+              margin: EdgeInsets.only(bottom: 20),
+              width: double.infinity,
               child: ElevatedButton(
                 onPressed: () => showInputDialog(context).then((ciValue) {
                   myController.text = ''; //Limpiar textfield
@@ -90,7 +87,7 @@ class _HomeState extends State<Home> {
                   }
                 }),
                 child: Padding(
-                  padding: EdgeInsets.fromLTRB(20, 18, 20, 18),
+                  padding: EdgeInsets.fromLTRB(0, 18, 0, 18),
                   child: Text(
                     'INGRESAR NÚMERO DE DOCUMENTO',
                   ),
