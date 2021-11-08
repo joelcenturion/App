@@ -8,8 +8,6 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:convert' as convert;
 import 'package:image/image.dart' as img;
-// import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:app/pages/person.dart';
 
 class Camera extends StatefulWidget {
   const Camera({Key? key}) : super(key: key);
@@ -109,7 +107,7 @@ class _CameraState extends State<Camera> {
         return;
       }
       // displayImage = await image.readAsBytes();
-      // print('displayImage = await image.readAsBytes()');
+      print('displayImage = await image.readAsBytes()');
       // Global.photoBytes = displayImage!;
 
       File imageTemporary = File(image.path);

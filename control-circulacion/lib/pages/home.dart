@@ -24,83 +24,85 @@ class _HomeState extends State<Home> {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
       statusBarColor: Color(0xffF1AF4B), // status bar color
     ));
-    return Scaffold(
-      resizeToAvoidBottomInset: false,
-      body: Container(
-        padding: EdgeInsets.all(20),
-        decoration: BoxDecoration(
-          // border: Border.all(color: Colors.black),
-          image: DecorationImage(
-            fit: BoxFit.fill,
-            image: AssetImage('assets/background.png'),
+    return SafeArea(
+      child: Scaffold(
+        resizeToAvoidBottomInset: false,
+        body: Container(
+          padding: EdgeInsets.fromLTRB(20, 0, 20, 20),
+          decoration: BoxDecoration(
+            // border: Border.all(color: Colors.black),
+            image: DecorationImage(
+              fit: BoxFit.fill,
+              image: AssetImage('assets/background.png'),
+            ),
           ),
-        ),
-        width: double.infinity,
-        height: double.infinity,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Container(
-              margin: EdgeInsets.only(top: 10),
-              child: Image.asset(
-                'assets/gobierno-nacional.png',
-                height: 120,
-                width: 320,
-                fit: BoxFit.fitWidth,
-              ),
-            ),
-            Container(
-              margin: EdgeInsets.only(bottom: 15),
-              child: Text(
-                'PASAPORTE SANITARIO',
-                style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-              ),
-            ),
-            Container(
-              child: Text('Municipalidad de Encarnación',
-                  style: TextStyle(
-                    fontSize: 15,
-                  )),
-            ),
-            Container(
-              margin: EdgeInsets.fromLTRB(10, 15, 10, 0),
-              child: Text(
-                'Ingrese el número de documento para validar los datos de vacunación',
-                style: TextStyle(color: Colors.grey, height: 2),
-              ),
-            ),
-            Expanded(child: Container()),
-            Container(
-              margin: EdgeInsets.only(bottom: 20),
-              width: double.infinity,
-              child: ElevatedButton(
-                onPressed: () => showInputDialog(context).then((ciValue) {
-                  myController.text = ''; //Limpiar textfield
-                  ciValue = ciValue.replaceAll(' ', ''); //Remove white spaces
-                  RegExp regexp =
-                      RegExp(r'^[0-9]*$'); //Para validación de sólo números
-                  if (!regexp.hasMatch(ciValue)) {
-                    showAlert();
-                  } else if (ciValue != false && ciValue != '') {
-                    Global.ci = ciValue;
-                    Navigator.pushNamed(context, '/loading');
-                  }
-                }),
-                child: Padding(
-                  padding: EdgeInsets.fromLTRB(0, 18, 0, 18),
-                  child: Text(
-                    'INGRESAR NÚMERO DE DOCUMENTO',
-                  ),
-                ),
-                style: ElevatedButton.styleFrom(
-                  primary: Color(0xffF1AF4B),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(25),
-                  ),
+          width: double.infinity,
+          height: double.infinity,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Container(
+                margin: EdgeInsets.only(top: 10),
+                child: Image.asset(
+                  'assets/gobierno-nacional.png',
+                  height: 120,
+                  width: 320,
+                  fit: BoxFit.fitWidth,
                 ),
               ),
-            ),
-          ],
+              Container(
+                margin: EdgeInsets.only(bottom: 15),
+                child: Text(
+                  'PASAPORTE SANITARIO',
+                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                ),
+              ),
+              Container(
+                child: Text('Municipalidad de Encarnación',
+                    style: TextStyle(
+                      fontSize: 15,
+                    )),
+              ),
+              Container(
+                margin: EdgeInsets.fromLTRB(10, 15, 10, 0),
+                child: Text(
+                  'Ingrese el número de documento para validar los datos de vacunación',
+                  style: TextStyle(color: Colors.grey, height: 2),
+                ),
+              ),
+              Expanded(child: Container()),
+              Container(
+                margin: EdgeInsets.only(bottom: 20),
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: () => showInputDialog(context).then((ciValue) {
+                    myController.text = ''; //Limpiar textfield
+                    ciValue = ciValue.replaceAll(' ', ''); //Remove white spaces
+                    RegExp regexp =
+                        RegExp(r'^[0-9]*$'); //Para validación de sólo números
+                    if (!regexp.hasMatch(ciValue)) {
+                      showAlert();
+                    } else if (ciValue != false && ciValue != '') {
+                      Global.ci = ciValue;
+                      Navigator.pushNamed(context, '/loading');
+                    }
+                  }),
+                  child: Padding(
+                    padding: EdgeInsets.fromLTRB(0, 18, 0, 18),
+                    child: Text(
+                      'INGRESAR NÚMERO DE DOCUMENTO',
+                    ),
+                  ),
+                  style: ElevatedButton.styleFrom(
+                    primary: Color(0xffF1AF4B),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(25),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
