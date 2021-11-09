@@ -108,7 +108,7 @@ class _PersonState extends State<Person> {
                 margin: EdgeInsets.symmetric(vertical: 10),
                 child: Image.memory(
                   person['photoBytes'],
-                  fit: BoxFit.fill,
+                  fit: BoxFit.contain,
                   //EN CASO DE QUE NO SE PUEDA CARGAR LA IMAGEN
                   errorBuilder: (BuildContext context, Object exception,
                       StackTrace? stackTrace) {
@@ -237,7 +237,7 @@ class _PersonState extends State<Person> {
                 ),
               ),
               Expanded(
-                flex: 2,
+                flex: 4,
                 child: SingleChildScrollView(
                   scrollDirection: Axis.vertical,
                   child: Container(
